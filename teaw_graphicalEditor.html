@@ -3,8 +3,11 @@
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
-		<meta name="description" content="Editor gráfico para niños/adultos con TEA."/>
-		<link rel="stylesheet" href="teaw_graphicalEditor.css"/>
+		<meta name="description" content="TEA web."/>
+		<link rel="stylesheet" media='screen and (min-width: 480px)' href="css/teaw_phone.css"/>
+		<link rel="stylesheet" media='screen and (min-width: 768px)' href="css/teaw_tablet.css"/>
+		<link rel="stylesheet" media='screen and (min-width: 1200px)' href="css/teaw_desktop.css"/>
+		<link rel="stylesheet" media='screen and (min-width: 2560px)' href="css/teaw_large.css"/>
 		<title>TEAw - Editor gráfico para niños/adultos con TEA</title>
 	</head>
 	
@@ -18,14 +21,14 @@
 			
 			<section id="contenido">
 				<div id="editor">
-					<div id="divDiagrama" style="border: 1px solid black; width: 100%; height: 70%; margin-top: 3px; position: relative; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
+					<div id="divDiagrama" style="border: 1px solid black; width: 100%; margin-top: 3px; position: relative; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
 						<canvas tabindex="0" width="1317" height="622" style="position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; touch-action: none; width: 1054px; height: 498px;">This text is displayed if your browser does not support the Canvas HTML element.</canvas>
 						<div style="position: absolute; overflow: auto; width: 1054px; height: 498px; z-index: 1;">
 							<div style="position: absolute; width: 1px; height: 1px;"></div>
 						</div>
 					</div>
 					
-					<div id="divPaleta" style="border: 1px solid black; width: 100%; height: 30%; margin-top: 6px; position: relative; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
+					<div id="divPaleta" style="border: 1px solid black; width: 100%; margin-top: 6px; position: relative; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
 						<canvas tabindex="0" width="1317" height="317" style="position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; touch-action: none; width: 1054px; height: 158px;">This text is displayed if your browser does not support the Canvas HTML element.</canvas>
 						<div style="position: absolute; overflow: auto; width: 1054px; height: 158px; z-index: 1;">
 							<div style="position: absolute; width: 1px; height: 1px;"></div>
@@ -46,7 +49,7 @@
 			</script> -->
 			<!-- <script src="https://togetherjs.com/togetherjs-min.js"></script> -->
 			<script src="gojs/go-debug_old.js"></script>
-			<script src="teaw_graphicalEditor.js"></script>
+			<script src="js/teaw_graphicalEditor.js"></script>
 			</body>
 		</html>
 		

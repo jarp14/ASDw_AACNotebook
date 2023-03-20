@@ -290,48 +290,60 @@ var diagrama = $(go.Diagram, "divDiagrama",
 		}); */
 		
 		
-		// Crear la paleta
-		var palette =
-		$(go.Palette, "divPaleta",
-			{
-				maxSelectionCount: 1,
-				nodeTemplateMap: diagrama.nodeTemplateMap,  // se asocian las plantillas de los nodos
-				linkTemplateMap: diagrama.linkTemplateMap,	// se asocian las plantillas de los enlaces
-				model: new go.GraphLinksModel([  // contenidos de la paleta
-					// nodos
-					/*{ text: "Entity", figure: "Rectangle", fill: "lightskyblue", category: "forma" },*/
-					// { text: "Picture", source: "file:///C:/Users/YoelA/OneDrive/Escritorio/Pictos_QueHacemosHoy/Bañarse.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Bañarse.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Beber.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Cantar.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Casa.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Colegio.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Comer.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Comprar.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Dibujar.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Dormir.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Encajable.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Escribir.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/EscucharMusica.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Hablar.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Hospital.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/IrBaño.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Jugar.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/LavarCara.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/LavarDientes.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/LavarManos.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Leer.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Natacion.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Ordenar.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Parque.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Pasear.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/PegarGomets.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Peinarse.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Pintar.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Recoger.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Saludar.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Sentarse.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/VerTv.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-					{ text: "Picture", source: "images/Vestirse.png", desiredSize: new go.Size(128, 128), category: "imagen" },
-				], [ /* enlaces */ ])
-				});				
+		if (window.screen.width > 2560) {
+			createPalette(256);
+		} else if (window.screen.width < 1024) {
+			createPalette(64);
+		} else {
+			createPalette(128);
+		}
+		
+		function createPalette(nodeSize) {
+			// Crear la paleta
+			var palette =
+			$(go.Palette, "divPaleta",
+				{
+					maxSelectionCount: 1,
+					nodeTemplateMap: diagrama.nodeTemplateMap,  // se asocian las plantillas de los nodos
+					linkTemplateMap: diagrama.linkTemplateMap,	// se asocian las plantillas de los enlaces
+					model: new go.GraphLinksModel([  // contenidos de la paleta
+						// nodos
+						/*{ text: "Entity", figure: "Rectangle", fill: "lightskyblue", category: "forma" },*/
+						// { text: "Picture", source: "file:///C:/Users/YoelA/OneDrive/Escritorio/Pictos_QueHacemosHoy/Bañarse.png", desiredSize: new go.Size(128, 128), category: "imagen" },
+						{ text: "Picture", source: "images/Bañarse.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Beber.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Cantar.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Casa.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Colegio.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Comer.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Comprar.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Dibujar.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Dormir.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Encajable.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Escribir.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/EscucharMusica.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Hablar.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Hospital.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/IrBaño.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Jugar.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/LavarCara.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/LavarDientes.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/LavarManos.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Leer.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Natacion.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Ordenar.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Parque.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Pasear.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/PegarGomets.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Peinarse.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Pintar.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Recoger.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Saludar.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Sentarse.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/VerTv.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+						{ text: "Picture", source: "images/Vestirse.png", desiredSize: new go.Size(nodeSize, nodeSize), category: "imagen" },
+					], [ /* enlaces */ ])
+					});			
+		}
+		
+		

@@ -22,6 +22,14 @@ header {
 	padding: 10px;
 }
 
+#divDiagrama {
+	height: 60%;
+}
+
+#divPaleta {
+	height: 40%;
+}
+
 footer {
 	display: flex;
 	justify-content: center;

@@ -1,3 +1,3 @@
-# TEAw
+# ASDw AAC Notebook
 
-Graphic editor to help plan activities for people with ASD
+Graphic editor for people with ASD to communicate
